@@ -3,16 +3,17 @@
 name = "betting-markets"
 version = "0.1.0"
 description = "A modular betting odds aggregation service"
-requires-python = ">=3.12"
-
-[project.dependencies]
-flask = "*"
-pydantic = "*"
+dependencies = [
+    "flask",
+    "pydantic",
+    "pyyaml",
+    "waitress",
+]
 
 [project.optional-dependencies]
 test = [
     "pytest",
-    "pytest-flask"
+    "pytest-flask",
 ]
 
 [build-system]

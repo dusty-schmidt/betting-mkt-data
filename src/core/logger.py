@@ -9,7 +9,9 @@ import logging
 import os
 from logging.handlers import RotatingFileHandler
 
-LOG_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", "logs"))
+LOG_DIR = os.getenv("LOG_DIR")
+if not LOG_DIR:
+    LOG_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", "logs"))
 os.makedirs(LOG_DIR, exist_ok=True)
 
 LOG_FILE = os.path.join(LOG_DIR, "app.log")

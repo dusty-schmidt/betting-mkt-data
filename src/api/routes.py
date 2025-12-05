@@ -18,11 +18,14 @@ api_bp = Blueprint('api', __name__, url_prefix='/api/v1')
 @api_bp.route('/games')
 def list_games():
     conn = get_connection()
-    cur = conn.cursor()
-    cur.execute("SELECT sport, game_id, home_team, away_team, start_time FROM games")
-    rows = cur.fetchall()
-    games = [dict(row) for row in rows]
-    return jsonify(games)
+    try:
+        cur = conn.cursor()
+        cur.execute("SELECT sport, game_id, home_team, away_team, start_time FROM games")
+        rows = cur.fetchall()
+        games = [dict(row) for row in rows]
+        return jsonify(games)
+    finally:
+        conn.close()
 
 @api_bp.route('/arbitrage')
 def arbitrage():

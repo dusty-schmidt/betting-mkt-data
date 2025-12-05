@@ -4,9 +4,12 @@ Uses SQLite via the built‑in ``sqlite3`` module for simplicity.
 The ``get_connection`` function returns a connection that other modules can use.
 """
 import sqlite3
+import os
 from pathlib import Path
 
-DB_PATH = Path(__file__).parent.parent / "betting_markets.db"
+# Allow overriding DB path via environment variable (e.g. for Docker volumes)
+_env_path = os.getenv("DB_PATH")
+DB_PATH = Path(_env_path) if _env_path else Path(__file__).parent.parent / "betting_markets.db"
 
 def get_connection():
     conn = sqlite3.connect(DB_PATH)

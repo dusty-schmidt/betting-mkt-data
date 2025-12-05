@@ -7,10 +7,21 @@ WSGI server (e.g., gunicorn) inside the Docker container.
 """
 
 from src.api.factory import create_app
+from src.core.scheduler import Scheduler
 
 app = create_app()
 
 if __name__ == "__main__":
-    # Enable debug mode for local development; Docker will run with
-    # the appropriate environment variables.
-    app.run(host="0.0.0.0", port=5000, debug=True)
+    # Start the background scheduler
+    scheduler = Scheduler()
+    scheduler.start()
+    
+    try:
+        # Use waitress for production-ready serving
+        # Threads=4 is a reasonable default for this workload
+        from waitress import serve
+        print("Starting server on 0.0.0.0:5000 via Waitress...")
+        serve(app, host="0.0.0.0", port=5000, threads=4)
+    finally:
+        # Ensure scheduler stops when app exits
+        scheduler.stop()

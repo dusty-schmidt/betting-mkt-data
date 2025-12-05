@@ -37,5 +37,6 @@ def orchestrate(sport_id: str = "NFL"):
         cur.execute(
             "INSERT OR IGNORE INTO games (sport, game_id, home_team, away_team, start_time) VALUES (?, ?, ?, ?, ?)",
             (game.sport, game.game_id, getattr(game, 'home_team', None), getattr(game, 'away_team', None), getattr(game, 'start_time', None))
+        )
     conn.commit()
     conn.close()

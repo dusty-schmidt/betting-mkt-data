@@ -1,0 +1,7 @@
+flask
+pydantic
+pyyaml
+
+[test]
+pytest
+pytest-flask

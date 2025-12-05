@@ -10,12 +10,10 @@ from pathlib import Path
 from typing import List
 
 from ..core.logger import get_logger
+from ..core.database import get_connection
 from .client import LLMClient
 
 log = get_logger(__name__)
-
-# Path to the SQLite DB (same as core.database.DB_PATH)
-DB_PATH = Path(__file__).resolve().parents[3] / "betting_markets.db"
 
 client = LLMClient()   # uses the stub implementation
 
@@ -30,14 +28,17 @@ def _load_recent_logs(lines: int = 20) -> str:
 def _db_stats() -> dict:
     """Return a tiny snapshot of the DB – row counts per table."""
     stats = {}
-    if not DB_PATH.is_file():
-        return stats
-    conn = sqlite3.connect(DB_PATH)
-    cur = conn.cursor()
-    for tbl in ("games", "odds"):
-        cur.execute(f"SELECT COUNT(*) FROM {tbl}")
-        stats[tbl] = cur.fetchone()[0]
-    conn.close()
+    try:
+        with get_connection() as conn:
+            cur = conn.cursor()
+            for tbl in ("games", "odds"):
+                try:
+                    cur.execute(f"SELECT COUNT(*) FROM {tbl}")
+                    stats[tbl] = cur.fetchone()[0]
+                except Exception:
+                    stats[tbl] = 0
+    except Exception:
+        pass
     return stats
 
 def summarise_status() -> str:
@@ -45,8 +46,7 @@ def summarise_status() -> str:
     prompt = (
         "You are a monitoring assistant for a betting‑odds aggregation service. "
         "Based on the following information, write a concise markdown status report (max 5 lines).\n\n"
-        f"Log tail (most recent {20} lines):\n```
-{_load_recent_logs()}\n```\n"
+        f"Log tail (most recent 20 lines):\n```\n{_load_recent_logs()}\n```\n"
         f"Database row counts: {json.dumps(_db_stats())}\n"
     )
     log.debug("Sending status prompt to LLM")
@@ -55,9 +55,7 @@ def summarise_status() -> str:
 def handle_failure(provider_name: str, error: Exception) -> str:
     """When a provider fails, ask the LLM for a remediation suggestion."""
     prompt = (
-        f"The provider '{provider_name}' raised an exception:\n```
-{repr(error)}
-```\n"
+        f"The provider '{provider_name}' raised an exception:\n```\n{repr(error)}\n```\n"
         "Suggest a short next step (e.g., retry after X seconds, rotate headers, "
         "or skip until next scheduled run). Return only the suggestion."
     )
