@@ -12,6 +12,7 @@ src/betting_markets.egg-info/top_level.txt
 src/core/__init__.py
 src/core/database.py
 src/core/headers.py
+src/core/health.py
 src/core/logger.py
 src/core/models.py
 src/core/orchestration.py

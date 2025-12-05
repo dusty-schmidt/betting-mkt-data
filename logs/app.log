@@ -16,3 +16,8 @@
 2025-12-05 15:32:22 | INFO     | src.core.scheduler | Starting scheduler for TEST_SPORT - TEST_PROVIDER (interval: 1s)
 2025-12-05 15:32:22 | INFO     | src.core.scheduler | Scheduler started with 1 active threads.
 2025-12-05 15:32:24 | INFO     | src.core.scheduler | Scheduler stopped.
+2025-12-05 18:37:40 | INFO     | src.core.health | Starting system health check
+2025-12-05 18:37:40 | INFO     | src.core.health | ✓ Database file exists: /home/ds/betting-mkt-data/src/betting_markets.db
+2025-12-05 18:37:40 | INFO     | src.core.health | System health check: PASSED
+2025-12-05 18:42:02 | INFO     | src.core.health | System health check passed - Database accessible at /home/ds/betting-mkt-data/src/betting_markets.db with 0 tables
+2025-12-05 18:42:19 | INFO     | src.core.health | System health check passed - Database accessible at /home/ds/betting-mkt-data/src/betting_markets.db with 3 tables
