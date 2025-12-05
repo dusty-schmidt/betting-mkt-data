@@ -1,0 +1,20 @@
+# pyproject.toml
+[project]
+name = "betting-markets"
+version = "0.1.0"
+description = "A modular betting odds aggregation service"
+requires-python = ">=3.12"
+
+[project.dependencies]
+flask = "*"
+pydantic = "*"
+
+[project.optional-dependencies]
+test = [
+    "pytest",
+    "pytest-flask"
+]
+
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"

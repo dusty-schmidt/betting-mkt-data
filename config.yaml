@@ -1,0 +1,15 @@
+# config.yaml
+# Central configuration for fetch intervals (in seconds).
+# Structure: sport -> provider -> interval seconds.
+# Adjust as needed for "set and forget" operation.
+
+intervals:
+  NFL:
+    DraftKings: 300   # fetch every 5 minutes
+    FanDuel: 300
+  NBA:
+    DraftKings: 600   # fetch every 10 minutes
+    FanDuel: 600
+  MLB:
+    DraftKings: 900
+    FanDuel: 900
