@@ -16,3 +16,6 @@
 2025-12-05 15:32:22 | INFO     | src.core.scheduler | Starting scheduler for TEST_SPORT - TEST_PROVIDER (interval: 1s)
 2025-12-05 15:32:22 | INFO     | src.core.scheduler | Scheduler started with 1 active threads.
 2025-12-05 15:32:24 | INFO     | src.core.scheduler | Scheduler stopped.
+2025-12-05 16:19:07 | INFO     | src.core.scheduler | Starting scheduler for TEST_SPORT - TEST_PROVIDER (interval: 1s)
+2025-12-05 16:19:07 | INFO     | src.core.scheduler | Scheduler started with 1 active threads.
+2025-12-05 16:19:09 | INFO     | src.core.scheduler | Scheduler stopped.
