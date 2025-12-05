@@ -7,8 +7,17 @@ from dataclasses import dataclass
 from datetime import datetime
 
 @dataclass
-class Game:
+class BaseDataModel:
+    """Base class for all data models.
+    
+    This establishes a common pattern for data models in the system.
+    Future extensions can add common methods or properties here.
+    """
     id: int | None = None
+
+@dataclass
+class Game(BaseDataModel):
+    """Represents a sporting event/game."""
     sport: str = ""
     game_id: str = ""
     home_team: str = ""
@@ -16,8 +25,8 @@ class Game:
     start_time: datetime | None = None
 
 @dataclass
-class Odds:
-    id: int | None = None
+class Odds(BaseDataModel):
+    """Represents odds for a specific market."""
     game_id: int = 0
     provider: str = ""
     market: str = ""

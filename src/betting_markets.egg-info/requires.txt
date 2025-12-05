@@ -1,6 +1,7 @@
 flask
 pydantic
 pyyaml
+waitress
 
 [test]
 pytest
