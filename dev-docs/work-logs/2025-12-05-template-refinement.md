@@ -25,7 +25,7 @@ Refine the project structure to be a production-ready, reusable template with dy
 - `docs/ARCHITECTURE.md` - Comprehensive architecture documentation
 - `docs/DATABASE.md` - Database schema and usage
 - `docs/LLM.md` - LLM integration guide
-- `docs/DATA-EXTRACTION.md` - Provider system documentation
+- `docs/PROVIDERS.md` - Provider system documentation
 
 ## Verification
 - Tests run: `uv run pytest` (4/4 passed)

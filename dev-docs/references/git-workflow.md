@@ -176,7 +176,7 @@ git log --oneline -10
 # 1. Start work
 ./dev-workflow.sh start
 
-# 2. Follow docs/DATA-EXTRACTION.md
+# 2. Follow docs/PROVIDERS.md
 # 3. Create provider files
 # 4. Test locally
 # 5. End work

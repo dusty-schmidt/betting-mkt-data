@@ -3,40 +3,51 @@
 
 import requests
 import urllib.parse
+from typing import Optional, Dict, Any, Tuple
 from ...core.logger import get_logger
-from .mappings import (
-    MANIFEST_URL,
-    TEMPLATE_URL_BASE,
-    MARKET_URL_BASE,
-    HEADERS,
-    SUBCATEGORY_IDS,
-    LEAGUE_ROUTES
-)
+from ...core.config import load_config
 
 log = get_logger(__name__)
 
 class DraftKingsClient:
     """Client for fetching odds data from DraftKings API."""
 
-    # Map sport IDs to DraftKings league IDs
-    LEAGUE_MAPPING = {
-        "100": "1",      # NFL
-        "200": "42648",  # NBA
-        "300": "3",      # MLB
-    }
+    def __init__(self):
+        self.config = load_config()
+        self.provider_config = self.config.get_provider_config("DraftKings")
+        self.headers = self.provider_config.get("headers", {})
 
     def get_odds(self, sport_id: str):
-        """Fetch odds data for a specific sport from DraftKings API."""
+        """Fetch odds data for a specific sport from DraftKings API.
+        
+        Note: This method might need to be deprecated or updated if we strictly use
+        the dynamic client flow. For now, we'll try to map sport_id (e.g. "NFL" or "3")
+        to a league ID using the config.
+        """
+        # Try to find sport config by name
+        sport_config = self.config.get_sport_config("DraftKings", sport_id)
+        
+        # If not found by name, try to reverse lookup by sport_id (less efficient but flexible)
+        if not sport_config:
+             sports_map = self.provider_config.get("sports", {})
+             for s_name, s_conf in sports_map.items():
+                 if s_conf.get("sport_id") == sport_id:
+                     sport_config = s_conf
+                     break
+        
+        if not sport_config:
+            log.warning(f"No configuration found for sport: {sport_id}")
+            return {}
+
+        league_id = sport_config.get("league_id")
+        base_url = self.provider_config.get("base_url")
+        
+        # This endpoint might be different from the dynamic one, but keeping similar logic to original
+        url = f"{base_url}/api/sportscontent/dkusoh/v1/leagues/{league_id}"
+        log.info(f"Fetching DraftKings data from: {url}")
+
         try:
-            league_id = self.LEAGUE_MAPPING.get(sport_id)
-            if not league_id:
-                log.warning(f"No league mapping found for sport_id: {sport_id}")
-                return {}
-
-            url = f"https://sportsbook-nash.draftkings.com/api/sportscontent/dkusoh/v1/leagues/{league_id}"
-            log.info(f"Fetching DraftKings data from: {url}")
-
-            response = requests.get(url, headers=HEADERS, timeout=10)
+            response = requests.get(url, headers=self.headers, timeout=10)
             response.raise_for_status()
 
             data = response.json()
@@ -60,7 +71,18 @@ class DraftKingsDynamicClient:
     3. Extract market queries and construct final API URLs
     """
 
-    def fetch_json(self, url: str, description: str):
+    def __init__(self):
+        self.config = load_config()
+        self.provider_config = self.config.get_provider_config("DraftKings")
+        self.headers = self.provider_config.get("headers", {})
+        self.base_url = self.provider_config.get("base_url", "")
+        
+        # Resolve URL templates
+        self.manifest_url = self.provider_config.get("manifest_url_template", "").format(base_url=self.base_url)
+        self.template_url_base = self.provider_config.get("template_url_base", "").format(base_url=self.base_url)
+        self.market_url_base = self.provider_config.get("market_url_base", "").format(base_url=self.base_url)
+
+    def fetch_json(self, url: str, description: str) -> Optional[Dict]:
         """Helper to fetch JSON data with error handling.
         
         Args:
@@ -72,14 +94,14 @@ class DraftKingsDynamicClient:
         """
         try:
             log.info(f"Fetching {description} from: {url}")
-            response = requests.get(url, headers=HEADERS, timeout=10)
+            response = requests.get(url, headers=self.headers, timeout=10)
             response.raise_for_status()
             return response.json()
         except requests.exceptions.RequestException as e:
             log.error(f"Failed to fetch {description}: {e}")
             return None
 
-    def find_league_info(self, manifest_data: dict, sport_name: str):
+    def find_league_info(self, manifest_data: dict, sport_name: str) -> Tuple[Optional[str], Optional[str]]:
         """Finds the templateId and leagueId for a specific sport league page.
         
         Args:
@@ -93,11 +115,13 @@ class DraftKingsDynamicClient:
             log.error("No manifest data provided")
             return None, None
         
-        target_route = LEAGUE_ROUTES.get(sport_name)
-        if not target_route:
-            log.error(f"No route mapping for sport: {sport_name}")
+        sport_config = self.config.get_sport_config("DraftKings", sport_name)
+        if not sport_config:
+            log.error(f"No configuration found for sport: {sport_name}")
             return None, None
 
+        target_route = sport_config.get("league_route")
+        
         for route_group in manifest_data.get('routes', []):
             if route_group.get('key') == 'league':
                 for override in route_group.get('overrides', []):
@@ -189,12 +213,12 @@ class DraftKingsDynamicClient:
         
         # URL encode the parameters
         query_string = urllib.parse.urlencode(params)
-        market_url = f"{MARKET_URL_BASE}?{query_string}"
+        market_url = f"{self.market_url_base}?{query_string}"
         
         log.debug(f"Constructed market URL with {len(events_query)} events query chars")
         return market_url
 
-    def get_games_for_sport(self, sport_name: str):
+    def get_games_for_sport(self, sport_name: str, subcategory_name: str = "game_lines"):
         """Orchestrates the fetching of games for a specific sport.
         
         Implements the 3-step workflow:
@@ -204,14 +228,20 @@ class DraftKingsDynamicClient:
         
         Args:
             sport_name: Name of the sport (e.g., "NFL", "NBA")
+            subcategory_name: Name of the subcategory key in config (default: "game_lines")
             
         Returns:
             Market data JSON response if successful, None if failed
         """
-        log.info(f"Starting dynamic fetch for {sport_name}")
+        log.info(f"Starting dynamic fetch for {sport_name} (subcategory: {subcategory_name})")
         
+        sport_config = self.config.get_sport_config("DraftKings", sport_name)
+        if not sport_config:
+             log.error(f"Configuration not found for sport: {sport_name}")
+             return None
+
         # Step 1: Fetch Manifest
-        manifest_data = self.fetch_json(MANIFEST_URL, "Manifest")
+        manifest_data = self.fetch_json(self.manifest_url, "Manifest")
         if not manifest_data:
             log.error(f"Failed to fetch manifest for {sport_name}")
             return None
@@ -223,7 +253,7 @@ class DraftKingsDynamicClient:
             return None
 
         # Step 3: Fetch Template
-        template_url = f"{TEMPLATE_URL_BASE}{template_id}?format=json"
+        template_url = f"{self.template_url_base}{template_id}?format=json"
         template_data = self.fetch_json(template_url, f"{sport_name} Template")
         if not template_data:
             log.error(f"Failed to fetch template for {sport_name}")
@@ -233,10 +263,12 @@ class DraftKingsDynamicClient:
         queries = self.extract_all_market_queries(template_data)
         log.info(f"Found {len(queries)} potential market queries for {sport_name}")
 
-        # Step 5: Iterate and find the one with Game Lines
-        target_subcategory_id = SUBCATEGORY_IDS.get(sport_name)
+        # Step 5: Iterate and find the one with matching subcategory
+        subcategories = sport_config.get("subcategories", {})
+        target_subcategory_id = subcategories.get(subcategory_name)
+        
         if not target_subcategory_id:
-            log.warning(f"No known subcategory ID for {sport_name}, skipping substitution attempt")
+            log.warning(f"No subcategory ID configured for {sport_name} -> {subcategory_name}, skipping substitution attempt")
             return None
 
         for query in queries:
@@ -269,5 +301,5 @@ class DraftKingsDynamicClient:
                 log.info(f"Found data with {len(market_data['events'])} events using query {query['name']}")
                 return market_data
                 
-        log.error(f"Could not find any data for {sport_name} Game Lines")
+        log.error(f"Could not find any data for {sport_name} -> {subcategory_name}")
         return None

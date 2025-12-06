@@ -33,3 +33,9 @@ uv.lock
 # OS
 .DS_Store
 Thumbs.db
+
+# Large files / Data
+*.deb
+*.rpm
+output/
+debug_*.json

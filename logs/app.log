@@ -451,3 +451,192 @@
 2025-12-06 01:19:51 | INFO     | src.providers.draftkings.parser | Successfully parsed 1 games from DraftKings
 2025-12-06 01:19:51 | INFO     | src.providers.draftkings | Successfully parsed 1 games with market data for NBA
 2025-12-06 01:19:51 | INFO     | tests.test_dk_integration | Complete workflow integration test passed
+2025-12-06 11:52:20 | INFO     | src.core.config | Loaded configuration from config.yaml
+2025-12-06 11:53:40 | INFO     | src.core.config | Loaded configuration from config.yaml
+2025-12-06 11:53:40 | INFO     | src.providers.draftkings.client | Fetching DraftKings data from: https://sportsbook-nash.draftkings.com/api/sportscontent/dkusoh/v1/leagues/88808
+2025-12-06 11:53:40 | INFO     | src.providers.draftkings.client | Successfully fetched 0 events from DraftKings
+2025-12-06 11:56:03 | INFO     | src.core.config | Loaded configuration from config.yaml
+2025-12-06 11:56:03 | INFO     | src.providers.draftkings.client | Fetching DraftKings data from: https://sportsbook-nash.draftkings.com/api/sportscontent/dkusoh/v1/leagues/88808
+2025-12-06 11:56:05 | INFO     | src.providers.draftkings.client | Successfully fetched 29 events from DraftKings
+2025-12-06 11:58:46 | INFO     | src.core.config | Loaded configuration from config.yaml
+2025-12-06 11:58:46 | INFO     | src.providers.draftkings.client | Starting dynamic fetch for NFL
+2025-12-06 11:58:46 | INFO     | src.providers.draftkings.client | Fetching Manifest from: https://sportsbook-nash.draftkings.com/sites/US-OH-SB/api/sportslayout/v1/manifest?format=json
+2025-12-06 11:58:53 | INFO     | src.providers.draftkings.client | Found NFL Template ID: 02d63505-bc8a-47d7-9ab4-eae634706188__client_web_1.4.0, League ID: 88808
+2025-12-06 11:58:53 | INFO     | src.providers.draftkings.client | Fetching NFL Template from: https://sportsbook-nash.draftkings.com/sites/US-OH-SB/api/sportsstructure/v1/templates/02d63505-bc8a-47d7-9ab4-eae634706188__client_web_1.4.0?format=json
+2025-12-06 11:58:55 | INFO     | src.providers.draftkings.client | Extracted 51 potential market queries
+2025-12-06 11:58:55 | INFO     | src.providers.draftkings.client | Found 51 potential market queries for NFL
+2025-12-06 11:58:55 | INFO     | src.providers.draftkings.client | Fetching Market Data (WPY62O4Data) from: https://sportsbook-nash.draftkings.com/sites/US-OH-SB/api/sportscontent/controldata/league/leagueSubcategory/v1/markets?isBatchable=false&templateVars=88808&eventsQuery=%24filter%3DleagueId+eq+%2788808%27+AND+clientMetadata%2FSubcategories%2Fany%28s%3A+s%2FId+eq+%274518%27%29&marketsQuery=%24filter%3DclientMetadata%2FsubCategoryId+eq+%274518%27+AND+tags%2Fall%28t%3A+t+ne+%27SportcastBetBuilder%27%29&include=Events&entity=events
+2025-12-06 11:58:56 | INFO     | src.providers.draftkings.client | Found data with 29 events using query WPY62O4Data
+2025-12-06 11:58:56 | INFO     | src.providers.draftkings.parser | Successfully parsed 29 games from DraftKings
+2025-12-06 12:01:02 | INFO     | src.core.config | Loaded configuration from config.yaml
+2025-12-06 12:01:02 | INFO     | src.providers.draftkings.client | Starting dynamic fetch for NBA (subcategory: player_points)
+2025-12-06 12:01:02 | INFO     | src.providers.draftkings.client | Fetching Manifest from: https://sportsbook-nash.draftkings.com/sites/US-OH-SB/api/sportslayout/v1/manifest?format=json
+2025-12-06 12:01:08 | INFO     | src.providers.draftkings.client | Found NBA Template ID: b6f414b8-c1ca-4040-ab9d-0492a805d532__client_web_1.4.0, League ID: 42648
+2025-12-06 12:01:08 | INFO     | src.providers.draftkings.client | Fetching NBA Template from: https://sportsbook-nash.draftkings.com/sites/US-OH-SB/api/sportsstructure/v1/templates/b6f414b8-c1ca-4040-ab9d-0492a805d532__client_web_1.4.0?format=json
+2025-12-06 12:01:10 | INFO     | src.providers.draftkings.client | Extracted 95 potential market queries
+2025-12-06 12:01:10 | INFO     | src.providers.draftkings.client | Found 95 potential market queries for NBA
+2025-12-06 12:01:10 | INFO     | src.providers.draftkings.client | Fetching Market Data (GYDLCFWData) from: https://sportsbook-nash.draftkings.com/sites/US-OH-SB/api/sportscontent/controldata/league/leagueSubcategory/v1/markets?isBatchable=false&templateVars=42648&eventsQuery=%24filter%3DleagueId+eq+%2742648%27+AND+clientMetadata%2FSubcategories%2Fany%28s%3A+s%2FId+eq+%2716477%27%29&marketsQuery=%24filter%3DclientMetadata%2FsubCategoryId+eq+%2716477%27+AND+tags%2Fall%28t%3A+t+ne+%27SportcastBetBuilder%27%29&include=Events&entity=events
+2025-12-06 12:01:10 | INFO     | src.providers.draftkings.client | Found data with 7 events using query GYDLCFWData
+2025-12-06 12:02:52 | INFO     | src.core.config | Loaded configuration from config.yaml
+2025-12-06 12:02:52 | INFO     | src.providers.draftkings.client | Fetching Manifest from: https://sportsbook-nash.draftkings.com/sites/US-OH-SB/api/sportslayout/v1/manifest?format=json
+2025-12-06 12:02:52 | INFO     | src.providers.draftkings.client | Found NFL Template ID: 02d63505-bc8a-47d7-9ab4-eae634706188__client_web_1.4.0, League ID: 88808
+2025-12-06 12:02:52 | INFO     | src.providers.draftkings.client | Fetching Manifest from: https://sportsbook-nash.draftkings.com/sites/US-OH-SB/api/sportslayout/v1/manifest?format=json
+2025-12-06 12:02:53 | INFO     | src.providers.draftkings.client | Found NBA Template ID: b6f414b8-c1ca-4040-ab9d-0492a805d532__client_web_1.4.0, League ID: 42648
+2025-12-06 12:03:16 | INFO     | src.core.config | Loaded configuration from config.yaml
+2025-12-06 12:03:16 | INFO     | src.providers.draftkings.client | Fetching Manifest from: https://sportsbook-nash.draftkings.com/sites/US-OH-SB/api/sportslayout/v1/manifest?format=json
+2025-12-06 12:03:39 | INFO     | src.core.config | Loaded configuration from config.yaml
+2025-12-06 12:03:39 | INFO     | src.providers.draftkings.client | Fetching Manifest from: https://sportsbook-nash.draftkings.com/sites/US-OH-SB/api/sportslayout/v1/manifest?format=json
+2025-12-06 12:03:39 | INFO     | src.providers.draftkings.client | Found NFL Template ID: 02d63505-bc8a-47d7-9ab4-eae634706188__client_web_1.4.0, League ID: 88808
+2025-12-06 12:03:39 | INFO     | src.providers.draftkings.client | Fetching Template from: https://sportsbook-nash.draftkings.com/sites/US-OH-SB/api/sportsstructure/v1/templates/02d63505-bc8a-47d7-9ab4-eae634706188__client_web_1.4.0?format=json
+2025-12-06 12:07:59 | INFO     | src.providers.draftkings.parser | Successfully parsed 13 games from DraftKings
+2025-12-06 12:08:11 | INFO     | src.providers.draftkings.parser | Successfully parsed 13 games from DraftKings
+2025-12-06 12:08:21 | INFO     | src.providers.draftkings.parser | Successfully parsed 13 games from DraftKings
+2025-12-06 12:10:04 | INFO     | src.core.config | Loaded configuration from config.yaml
+2025-12-06 12:10:04 | INFO     | src.providers.draftkings.client | Starting dynamic fetch for NBA (subcategory: game_lines)
+2025-12-06 12:10:04 | INFO     | src.providers.draftkings.client | Fetching Manifest from: https://sportsbook-nash.draftkings.com/sites/US-OH-SB/api/sportslayout/v1/manifest?format=json
+2025-12-06 12:10:04 | INFO     | src.providers.draftkings.client | Found NBA Template ID: b6f414b8-c1ca-4040-ab9d-0492a805d532__client_web_1.4.0, League ID: 42648
+2025-12-06 12:10:04 | INFO     | src.providers.draftkings.client | Fetching NBA Template from: https://sportsbook-nash.draftkings.com/sites/US-OH-SB/api/sportsstructure/v1/templates/b6f414b8-c1ca-4040-ab9d-0492a805d532__client_web_1.4.0?format=json
+2025-12-06 12:10:04 | INFO     | src.providers.draftkings.client | Extracted 95 potential market queries
+2025-12-06 12:10:04 | INFO     | src.providers.draftkings.client | Found 95 potential market queries for NBA
+2025-12-06 12:10:04 | INFO     | src.providers.draftkings.client | Fetching Market Data (GYDLCFWData) from: https://sportsbook-nash.draftkings.com/sites/US-OH-SB/api/sportscontent/controldata/league/leagueSubcategory/v1/markets?isBatchable=false&templateVars=42648&eventsQuery=%24filter%3DleagueId+eq+%2742648%27+AND+clientMetadata%2FSubcategories%2Fany%28s%3A+s%2FId+eq+%274511%27%29&marketsQuery=%24filter%3DclientMetadata%2FsubCategoryId+eq+%274511%27+AND+tags%2Fall%28t%3A+t+ne+%27SportcastBetBuilder%27%29&include=Events&entity=events
+2025-12-06 12:10:04 | INFO     | src.providers.draftkings.client | Found data with 11 events using query GYDLCFWData
+2025-12-06 12:10:04 | INFO     | src.providers.draftkings.parser | Successfully parsed 11 games from DraftKings
+2025-12-06 12:10:04 | INFO     | src.providers.draftkings.client | Starting dynamic fetch for NBA (subcategory: player_points)
+2025-12-06 12:10:04 | INFO     | src.providers.draftkings.client | Fetching Manifest from: https://sportsbook-nash.draftkings.com/sites/US-OH-SB/api/sportslayout/v1/manifest?format=json
+2025-12-06 12:10:05 | INFO     | src.providers.draftkings.client | Found NBA Template ID: b6f414b8-c1ca-4040-ab9d-0492a805d532__client_web_1.4.0, League ID: 42648
+2025-12-06 12:10:05 | INFO     | src.providers.draftkings.client | Fetching NBA Template from: https://sportsbook-nash.draftkings.com/sites/US-OH-SB/api/sportsstructure/v1/templates/b6f414b8-c1ca-4040-ab9d-0492a805d532__client_web_1.4.0?format=json
+2025-12-06 12:10:05 | INFO     | src.providers.draftkings.client | Extracted 95 potential market queries
+2025-12-06 12:10:05 | INFO     | src.providers.draftkings.client | Found 95 potential market queries for NBA
+2025-12-06 12:10:05 | INFO     | src.providers.draftkings.client | Fetching Market Data (GYDLCFWData) from: https://sportsbook-nash.draftkings.com/sites/US-OH-SB/api/sportscontent/controldata/league/leagueSubcategory/v1/markets?isBatchable=false&templateVars=42648&eventsQuery=%24filter%3DleagueId+eq+%2742648%27+AND+clientMetadata%2FSubcategories%2Fany%28s%3A+s%2FId+eq+%2716477%27%29&marketsQuery=%24filter%3DclientMetadata%2FsubCategoryId+eq+%2716477%27+AND+tags%2Fall%28t%3A+t+ne+%27SportcastBetBuilder%27%29&include=Events&entity=events
+2025-12-06 12:10:05 | INFO     | src.providers.draftkings.client | Found data with 7 events using query GYDLCFWData
+2025-12-06 12:10:05 | INFO     | src.providers.draftkings.parser | Successfully parsed 7 games from DraftKings
+2025-12-06 12:10:05 | INFO     | src.providers.draftkings.client | Starting dynamic fetch for NFL (subcategory: game_lines)
+2025-12-06 12:10:05 | INFO     | src.providers.draftkings.client | Fetching Manifest from: https://sportsbook-nash.draftkings.com/sites/US-OH-SB/api/sportslayout/v1/manifest?format=json
+2025-12-06 12:10:05 | INFO     | src.providers.draftkings.client | Found NFL Template ID: 02d63505-bc8a-47d7-9ab4-eae634706188__client_web_1.4.0, League ID: 88808
+2025-12-06 12:10:05 | INFO     | src.providers.draftkings.client | Fetching NFL Template from: https://sportsbook-nash.draftkings.com/sites/US-OH-SB/api/sportsstructure/v1/templates/02d63505-bc8a-47d7-9ab4-eae634706188__client_web_1.4.0?format=json
+2025-12-06 12:10:05 | INFO     | src.providers.draftkings.client | Extracted 51 potential market queries
+2025-12-06 12:10:05 | INFO     | src.providers.draftkings.client | Found 51 potential market queries for NFL
+2025-12-06 12:10:05 | INFO     | src.providers.draftkings.client | Fetching Market Data (WPY62O4Data) from: https://sportsbook-nash.draftkings.com/sites/US-OH-SB/api/sportscontent/controldata/league/leagueSubcategory/v1/markets?isBatchable=false&templateVars=88808&eventsQuery=%24filter%3DleagueId+eq+%2788808%27+AND+clientMetadata%2FSubcategories%2Fany%28s%3A+s%2FId+eq+%274518%27%29&marketsQuery=%24filter%3DclientMetadata%2FsubCategoryId+eq+%274518%27+AND+tags%2Fall%28t%3A+t+ne+%27SportcastBetBuilder%27%29&include=Events&entity=events
+2025-12-06 12:10:06 | INFO     | src.providers.draftkings.client | Found data with 29 events using query WPY62O4Data
+2025-12-06 12:10:06 | INFO     | src.providers.draftkings.parser | Successfully parsed 29 games from DraftKings
+2025-12-06 12:10:06 | INFO     | src.providers.draftkings.client | Starting dynamic fetch for NFL (subcategory: player_rushing)
+2025-12-06 12:10:06 | INFO     | src.providers.draftkings.client | Fetching Manifest from: https://sportsbook-nash.draftkings.com/sites/US-OH-SB/api/sportslayout/v1/manifest?format=json
+2025-12-06 12:10:06 | INFO     | src.providers.draftkings.client | Found NFL Template ID: 02d63505-bc8a-47d7-9ab4-eae634706188__client_web_1.4.0, League ID: 88808
+2025-12-06 12:10:06 | INFO     | src.providers.draftkings.client | Fetching NFL Template from: https://sportsbook-nash.draftkings.com/sites/US-OH-SB/api/sportsstructure/v1/templates/02d63505-bc8a-47d7-9ab4-eae634706188__client_web_1.4.0?format=json
+2025-12-06 12:10:06 | INFO     | src.providers.draftkings.client | Extracted 51 potential market queries
+2025-12-06 12:10:06 | INFO     | src.providers.draftkings.client | Found 51 potential market queries for NFL
+2025-12-06 12:10:06 | INFO     | src.providers.draftkings.client | Fetching Market Data (WPY62O4Data) from: https://sportsbook-nash.draftkings.com/sites/US-OH-SB/api/sportscontent/controldata/league/leagueSubcategory/v1/markets?isBatchable=false&templateVars=88808&eventsQuery=%24filter%3DleagueId+eq+%2788808%27+AND+clientMetadata%2FSubcategories%2Fany%28s%3A+s%2FId+eq+%2716571%27%29&marketsQuery=%24filter%3DclientMetadata%2FsubCategoryId+eq+%2716571%27+AND+tags%2Fall%28t%3A+t+ne+%27SportcastBetBuilder%27%29&include=Events&entity=events
+2025-12-06 12:10:06 | INFO     | src.providers.draftkings.client | Found data with 13 events using query WPY62O4Data
+2025-12-06 12:10:06 | INFO     | src.providers.draftkings.parser | Successfully parsed 13 games from DraftKings
+2025-12-06 12:11:54 | INFO     | src.core.config | Loaded configuration from config.yaml
+2025-12-06 12:11:54 | INFO     | src.providers.draftkings.client | Starting dynamic fetch for NBA (subcategory: game_lines)
+2025-12-06 12:11:54 | INFO     | src.providers.draftkings.client | Fetching Manifest from: https://sportsbook-nash.draftkings.com/sites/US-OH-SB/api/sportslayout/v1/manifest?format=json
+2025-12-06 12:11:54 | INFO     | src.providers.draftkings.client | Found NBA Template ID: b6f414b8-c1ca-4040-ab9d-0492a805d532__client_web_1.4.0, League ID: 42648
+2025-12-06 12:11:54 | INFO     | src.providers.draftkings.client | Fetching NBA Template from: https://sportsbook-nash.draftkings.com/sites/US-OH-SB/api/sportsstructure/v1/templates/b6f414b8-c1ca-4040-ab9d-0492a805d532__client_web_1.4.0?format=json
+2025-12-06 12:11:54 | INFO     | src.providers.draftkings.client | Extracted 95 potential market queries
+2025-12-06 12:11:54 | INFO     | src.providers.draftkings.client | Found 95 potential market queries for NBA
+2025-12-06 12:11:54 | INFO     | src.providers.draftkings.client | Fetching Market Data (GYDLCFWData) from: https://sportsbook-nash.draftkings.com/sites/US-OH-SB/api/sportscontent/controldata/league/leagueSubcategory/v1/markets?isBatchable=false&templateVars=42648&eventsQuery=%24filter%3DleagueId+eq+%2742648%27+AND+clientMetadata%2FSubcategories%2Fany%28s%3A+s%2FId+eq+%274511%27%29&marketsQuery=%24filter%3DclientMetadata%2FsubCategoryId+eq+%274511%27+AND+tags%2Fall%28t%3A+t+ne+%27SportcastBetBuilder%27%29&include=Events&entity=events
+2025-12-06 12:11:54 | INFO     | src.providers.draftkings.client | Found data with 11 events using query GYDLCFWData
+2025-12-06 12:11:54 | INFO     | src.providers.draftkings.parser | Successfully parsed 11 games from DraftKings
+2025-12-06 12:11:54 | INFO     | src.providers.draftkings.client | Starting dynamic fetch for NBA (subcategory: player_points)
+2025-12-06 12:11:54 | INFO     | src.providers.draftkings.client | Fetching Manifest from: https://sportsbook-nash.draftkings.com/sites/US-OH-SB/api/sportslayout/v1/manifest?format=json
+2025-12-06 12:11:54 | INFO     | src.providers.draftkings.client | Found NBA Template ID: b6f414b8-c1ca-4040-ab9d-0492a805d532__client_web_1.4.0, League ID: 42648
+2025-12-06 12:11:54 | INFO     | src.providers.draftkings.client | Fetching NBA Template from: https://sportsbook-nash.draftkings.com/sites/US-OH-SB/api/sportsstructure/v1/templates/b6f414b8-c1ca-4040-ab9d-0492a805d532__client_web_1.4.0?format=json
+2025-12-06 12:11:55 | INFO     | src.providers.draftkings.client | Extracted 95 potential market queries
+2025-12-06 12:11:55 | INFO     | src.providers.draftkings.client | Found 95 potential market queries for NBA
+2025-12-06 12:11:55 | INFO     | src.providers.draftkings.client | Fetching Market Data (GYDLCFWData) from: https://sportsbook-nash.draftkings.com/sites/US-OH-SB/api/sportscontent/controldata/league/leagueSubcategory/v1/markets?isBatchable=false&templateVars=42648&eventsQuery=%24filter%3DleagueId+eq+%2742648%27+AND+clientMetadata%2FSubcategories%2Fany%28s%3A+s%2FId+eq+%2716477%27%29&marketsQuery=%24filter%3DclientMetadata%2FsubCategoryId+eq+%2716477%27+AND+tags%2Fall%28t%3A+t+ne+%27SportcastBetBuilder%27%29&include=Events&entity=events
+2025-12-06 12:11:55 | INFO     | src.providers.draftkings.client | Found data with 7 events using query GYDLCFWData
+2025-12-06 12:11:55 | INFO     | src.providers.draftkings.parser | Successfully parsed 7 games from DraftKings
+2025-12-06 12:11:55 | INFO     | src.providers.draftkings.client | Starting dynamic fetch for NFL (subcategory: game_lines)
+2025-12-06 12:11:55 | INFO     | src.providers.draftkings.client | Fetching Manifest from: https://sportsbook-nash.draftkings.com/sites/US-OH-SB/api/sportslayout/v1/manifest?format=json
+2025-12-06 12:11:55 | INFO     | src.providers.draftkings.client | Found NFL Template ID: 02d63505-bc8a-47d7-9ab4-eae634706188__client_web_1.4.0, League ID: 88808
+2025-12-06 12:11:55 | INFO     | src.providers.draftkings.client | Fetching NFL Template from: https://sportsbook-nash.draftkings.com/sites/US-OH-SB/api/sportsstructure/v1/templates/02d63505-bc8a-47d7-9ab4-eae634706188__client_web_1.4.0?format=json
+2025-12-06 12:11:55 | INFO     | src.providers.draftkings.client | Extracted 51 potential market queries
+2025-12-06 12:11:55 | INFO     | src.providers.draftkings.client | Found 51 potential market queries for NFL
+2025-12-06 12:11:55 | INFO     | src.providers.draftkings.client | Fetching Market Data (WPY62O4Data) from: https://sportsbook-nash.draftkings.com/sites/US-OH-SB/api/sportscontent/controldata/league/leagueSubcategory/v1/markets?isBatchable=false&templateVars=88808&eventsQuery=%24filter%3DleagueId+eq+%2788808%27+AND+clientMetadata%2FSubcategories%2Fany%28s%3A+s%2FId+eq+%274518%27%29&marketsQuery=%24filter%3DclientMetadata%2FsubCategoryId+eq+%274518%27+AND+tags%2Fall%28t%3A+t+ne+%27SportcastBetBuilder%27%29&include=Events&entity=events
+2025-12-06 12:11:55 | INFO     | src.providers.draftkings.client | Found data with 29 events using query WPY62O4Data
+2025-12-06 12:11:55 | INFO     | src.providers.draftkings.parser | Successfully parsed 29 games from DraftKings
+2025-12-06 12:11:55 | INFO     | src.providers.draftkings.client | Starting dynamic fetch for NFL (subcategory: player_rushing)
+2025-12-06 12:11:55 | INFO     | src.providers.draftkings.client | Fetching Manifest from: https://sportsbook-nash.draftkings.com/sites/US-OH-SB/api/sportslayout/v1/manifest?format=json
+2025-12-06 12:11:56 | INFO     | src.providers.draftkings.client | Found NFL Template ID: 02d63505-bc8a-47d7-9ab4-eae634706188__client_web_1.4.0, League ID: 88808
+2025-12-06 12:11:56 | INFO     | src.providers.draftkings.client | Fetching NFL Template from: https://sportsbook-nash.draftkings.com/sites/US-OH-SB/api/sportsstructure/v1/templates/02d63505-bc8a-47d7-9ab4-eae634706188__client_web_1.4.0?format=json
+2025-12-06 12:11:56 | INFO     | src.providers.draftkings.client | Extracted 51 potential market queries
+2025-12-06 12:11:56 | INFO     | src.providers.draftkings.client | Found 51 potential market queries for NFL
+2025-12-06 12:11:56 | INFO     | src.providers.draftkings.client | Fetching Market Data (WPY62O4Data) from: https://sportsbook-nash.draftkings.com/sites/US-OH-SB/api/sportscontent/controldata/league/leagueSubcategory/v1/markets?isBatchable=false&templateVars=88808&eventsQuery=%24filter%3DleagueId+eq+%2788808%27+AND+clientMetadata%2FSubcategories%2Fany%28s%3A+s%2FId+eq+%2716571%27%29&marketsQuery=%24filter%3DclientMetadata%2FsubCategoryId+eq+%2716571%27+AND+tags%2Fall%28t%3A+t+ne+%27SportcastBetBuilder%27%29&include=Events&entity=events
+2025-12-06 12:11:56 | INFO     | src.providers.draftkings.client | Found data with 13 events using query WPY62O4Data
+2025-12-06 12:11:56 | INFO     | src.providers.draftkings.parser | Successfully parsed 13 games from DraftKings
+2025-12-06 12:16:37 | INFO     | src.core.config | Loaded configuration from config.yaml
+2025-12-06 12:16:37 | INFO     | src.providers.draftkings.client | Starting dynamic fetch for NBA (subcategory: game_lines)
+2025-12-06 12:16:37 | INFO     | src.providers.draftkings.client | Fetching Manifest from: https://sportsbook-nash.draftkings.com/sites/US-OH-SB/api/sportslayout/v1/manifest?format=json
+2025-12-06 12:16:37 | INFO     | src.providers.draftkings.client | Found NBA Template ID: b6f414b8-c1ca-4040-ab9d-0492a805d532__client_web_1.4.0, League ID: 42648
+2025-12-06 12:16:37 | INFO     | src.providers.draftkings.client | Fetching NBA Template from: https://sportsbook-nash.draftkings.com/sites/US-OH-SB/api/sportsstructure/v1/templates/b6f414b8-c1ca-4040-ab9d-0492a805d532__client_web_1.4.0?format=json
+2025-12-06 12:16:37 | INFO     | src.providers.draftkings.client | Extracted 95 potential market queries
+2025-12-06 12:16:37 | INFO     | src.providers.draftkings.client | Found 95 potential market queries for NBA
+2025-12-06 12:16:37 | INFO     | src.providers.draftkings.client | Fetching Market Data (GYDLCFWData) from: https://sportsbook-nash.draftkings.com/sites/US-OH-SB/api/sportscontent/controldata/league/leagueSubcategory/v1/markets?isBatchable=false&templateVars=42648&eventsQuery=%24filter%3DleagueId+eq+%2742648%27+AND+clientMetadata%2FSubcategories%2Fany%28s%3A+s%2FId+eq+%274511%27%29&marketsQuery=%24filter%3DclientMetadata%2FsubCategoryId+eq+%274511%27+AND+tags%2Fall%28t%3A+t+ne+%27SportcastBetBuilder%27%29&include=Events&entity=events
+2025-12-06 12:16:38 | INFO     | src.providers.draftkings.client | Found data with 11 events using query GYDLCFWData
+2025-12-06 12:16:38 | INFO     | src.providers.draftkings.parser | Successfully parsed 11 games from DraftKings
+2025-12-06 12:16:38 | INFO     | src.providers.draftkings.client | Starting dynamic fetch for NBA (subcategory: player_points)
+2025-12-06 12:16:38 | INFO     | src.providers.draftkings.client | Fetching Manifest from: https://sportsbook-nash.draftkings.com/sites/US-OH-SB/api/sportslayout/v1/manifest?format=json
+2025-12-06 12:16:38 | INFO     | src.providers.draftkings.client | Found NBA Template ID: b6f414b8-c1ca-4040-ab9d-0492a805d532__client_web_1.4.0, League ID: 42648
+2025-12-06 12:16:38 | INFO     | src.providers.draftkings.client | Fetching NBA Template from: https://sportsbook-nash.draftkings.com/sites/US-OH-SB/api/sportsstructure/v1/templates/b6f414b8-c1ca-4040-ab9d-0492a805d532__client_web_1.4.0?format=json
+2025-12-06 12:16:38 | INFO     | src.providers.draftkings.client | Extracted 95 potential market queries
+2025-12-06 12:16:38 | INFO     | src.providers.draftkings.client | Found 95 potential market queries for NBA
+2025-12-06 12:16:38 | INFO     | src.providers.draftkings.client | Fetching Market Data (GYDLCFWData) from: https://sportsbook-nash.draftkings.com/sites/US-OH-SB/api/sportscontent/controldata/league/leagueSubcategory/v1/markets?isBatchable=false&templateVars=42648&eventsQuery=%24filter%3DleagueId+eq+%2742648%27+AND+clientMetadata%2FSubcategories%2Fany%28s%3A+s%2FId+eq+%2716477%27%29&marketsQuery=%24filter%3DclientMetadata%2FsubCategoryId+eq+%2716477%27+AND+tags%2Fall%28t%3A+t+ne+%27SportcastBetBuilder%27%29&include=Events&entity=events
+2025-12-06 12:16:38 | INFO     | src.providers.draftkings.client | Found data with 7 events using query GYDLCFWData
+2025-12-06 12:16:38 | INFO     | src.providers.draftkings.parser | Successfully parsed 7 games from DraftKings
+2025-12-06 12:16:38 | INFO     | src.providers.draftkings.client | Starting dynamic fetch for NFL (subcategory: game_lines)
+2025-12-06 12:16:38 | INFO     | src.providers.draftkings.client | Fetching Manifest from: https://sportsbook-nash.draftkings.com/sites/US-OH-SB/api/sportslayout/v1/manifest?format=json
+2025-12-06 12:16:39 | INFO     | src.providers.draftkings.client | Found NFL Template ID: 02d63505-bc8a-47d7-9ab4-eae634706188__client_web_1.4.0, League ID: 88808
+2025-12-06 12:16:39 | INFO     | src.providers.draftkings.client | Fetching NFL Template from: https://sportsbook-nash.draftkings.com/sites/US-OH-SB/api/sportsstructure/v1/templates/02d63505-bc8a-47d7-9ab4-eae634706188__client_web_1.4.0?format=json
+2025-12-06 12:16:39 | INFO     | src.providers.draftkings.client | Extracted 51 potential market queries
+2025-12-06 12:16:39 | INFO     | src.providers.draftkings.client | Found 51 potential market queries for NFL
+2025-12-06 12:16:39 | INFO     | src.providers.draftkings.client | Fetching Market Data (WPY62O4Data) from: https://sportsbook-nash.draftkings.com/sites/US-OH-SB/api/sportscontent/controldata/league/leagueSubcategory/v1/markets?isBatchable=false&templateVars=88808&eventsQuery=%24filter%3DleagueId+eq+%2788808%27+AND+clientMetadata%2FSubcategories%2Fany%28s%3A+s%2FId+eq+%274518%27%29&marketsQuery=%24filter%3DclientMetadata%2FsubCategoryId+eq+%274518%27+AND+tags%2Fall%28t%3A+t+ne+%27SportcastBetBuilder%27%29&include=Events&entity=events
+2025-12-06 12:16:39 | INFO     | src.providers.draftkings.client | Found data with 29 events using query WPY62O4Data
+2025-12-06 12:16:39 | INFO     | src.providers.draftkings.parser | Successfully parsed 29 games from DraftKings
+2025-12-06 12:16:39 | INFO     | src.providers.draftkings.client | Starting dynamic fetch for NFL (subcategory: player_rushing)
+2025-12-06 12:16:39 | INFO     | src.providers.draftkings.client | Fetching Manifest from: https://sportsbook-nash.draftkings.com/sites/US-OH-SB/api/sportslayout/v1/manifest?format=json
+2025-12-06 12:16:39 | INFO     | src.providers.draftkings.client | Found NFL Template ID: 02d63505-bc8a-47d7-9ab4-eae634706188__client_web_1.4.0, League ID: 88808
+2025-12-06 12:16:39 | INFO     | src.providers.draftkings.client | Fetching NFL Template from: https://sportsbook-nash.draftkings.com/sites/US-OH-SB/api/sportsstructure/v1/templates/02d63505-bc8a-47d7-9ab4-eae634706188__client_web_1.4.0?format=json
+2025-12-06 12:16:39 | INFO     | src.providers.draftkings.client | Extracted 51 potential market queries
+2025-12-06 12:16:39 | INFO     | src.providers.draftkings.client | Found 51 potential market queries for NFL
+2025-12-06 12:16:39 | INFO     | src.providers.draftkings.client | Fetching Market Data (WPY62O4Data) from: https://sportsbook-nash.draftkings.com/sites/US-OH-SB/api/sportscontent/controldata/league/leagueSubcategory/v1/markets?isBatchable=false&templateVars=88808&eventsQuery=%24filter%3DleagueId+eq+%2788808%27+AND+clientMetadata%2FSubcategories%2Fany%28s%3A+s%2FId+eq+%2716571%27%29&marketsQuery=%24filter%3DclientMetadata%2FsubCategoryId+eq+%2716571%27+AND+tags%2Fall%28t%3A+t+ne+%27SportcastBetBuilder%27%29&include=Events&entity=events
+2025-12-06 12:16:40 | INFO     | src.providers.draftkings.client | Found data with 13 events using query WPY62O4Data
+2025-12-06 12:16:40 | INFO     | src.providers.draftkings.parser | Successfully parsed 13 games from DraftKings
+2025-12-06 12:23:18 | INFO     | src.core.config | Loaded configuration from config.yaml
+2025-12-06 12:23:18 | INFO     | src.providers.draftkings.client | Fetching Manifest from: https://sportsbook-nash.draftkings.com/sites/US-OH-SB/api/sportslayout/v1/manifest?format=json
+2025-12-06 12:23:18 | INFO     | src.providers.draftkings.client | Found NFL Template ID: 02d63505-bc8a-47d7-9ab4-eae634706188__client_web_1.4.0, League ID: 88808
+2025-12-06 12:23:18 | INFO     | src.providers.draftkings.client | Fetching NFL Template from: https://sportsbook-nash.draftkings.com/sites/US-OH-SB/api/sportsstructure/v1/templates/02d63505-bc8a-47d7-9ab4-eae634706188__client_web_1.4.0?format=json
+2025-12-06 12:23:18 | INFO     | src.providers.draftkings.client | Found NBA Template ID: b6f414b8-c1ca-4040-ab9d-0492a805d532__client_web_1.4.0, League ID: 42648
+2025-12-06 12:23:18 | INFO     | src.providers.draftkings.client | Fetching NBA Template from: https://sportsbook-nash.draftkings.com/sites/US-OH-SB/api/sportsstructure/v1/templates/b6f414b8-c1ca-4040-ab9d-0492a805d532__client_web_1.4.0?format=json
+2025-12-06 12:23:18 | ERROR    | src.providers.draftkings.client | No configuration found for sport: NHL
+2025-12-06 12:23:18 | ERROR    | src.providers.draftkings.client | No configuration found for sport: MLB
+2025-12-06 12:23:37 | INFO     | src.core.config | Loaded configuration from config.yaml
+2025-12-06 12:23:37 | INFO     | src.providers.draftkings.client | Fetching Manifest from: https://sportsbook-nash.draftkings.com/sites/US-OH-SB/api/sportslayout/v1/manifest?format=json
+2025-12-06 12:23:37 | INFO     | src.providers.draftkings.client | Found NFL Template ID: 02d63505-bc8a-47d7-9ab4-eae634706188__client_web_1.4.0, League ID: 88808
+2025-12-06 12:23:37 | INFO     | src.providers.draftkings.client | Fetching Template from: https://sportsbook-nash.draftkings.com/sites/US-OH-SB/api/sportsstructure/v1/templates/02d63505-bc8a-47d7-9ab4-eae634706188__client_web_1.4.0?format=json
+2025-12-06 12:23:54 | INFO     | src.core.config | Loaded configuration from config.yaml
+2025-12-06 12:23:54 | INFO     | src.providers.draftkings.client | Fetching Manifest from: https://sportsbook-nash.draftkings.com/sites/US-OH-SB/api/sportslayout/v1/manifest?format=json
+2025-12-06 12:23:55 | INFO     | src.providers.draftkings.client | Found NFL Template ID: 02d63505-bc8a-47d7-9ab4-eae634706188__client_web_1.4.0, League ID: 88808
+2025-12-06 12:23:55 | INFO     | src.providers.draftkings.client | Fetching Template from: https://sportsbook-nash.draftkings.com/sites/US-OH-SB/api/sportsstructure/v1/templates/02d63505-bc8a-47d7-9ab4-eae634706188__client_web_1.4.0?format=json
+2025-12-06 12:24:14 | INFO     | src.core.config | Loaded configuration from config.yaml
+2025-12-06 12:24:14 | INFO     | src.providers.draftkings.client | Fetching Manifest from: https://sportsbook-nash.draftkings.com/sites/US-OH-SB/api/sportslayout/v1/manifest?format=json
+2025-12-06 12:24:14 | INFO     | src.providers.draftkings.client | Found NFL Template ID: 02d63505-bc8a-47d7-9ab4-eae634706188__client_web_1.4.0, League ID: 88808
+2025-12-06 12:24:14 | INFO     | src.providers.draftkings.client | Fetching NFL Template from: https://sportsbook-nash.draftkings.com/sites/US-OH-SB/api/sportsstructure/v1/templates/02d63505-bc8a-47d7-9ab4-eae634706188__client_web_1.4.0?format=json
+2025-12-06 12:24:32 | INFO     | src.core.config | Loaded configuration from config.yaml
+2025-12-06 12:24:32 | INFO     | src.providers.draftkings.client | Fetching Manifest from: https://sportsbook-nash.draftkings.com/sites/US-OH-SB/api/sportslayout/v1/manifest?format=json
+2025-12-06 12:24:59 | INFO     | src.core.config | Loaded configuration from config.yaml
+2025-12-06 12:24:59 | INFO     | src.providers.draftkings.client | Fetching NFL Categories from: https://sportsbook-us-oh.draftkings.com//sites/US-OH-SB/api/v5/eventgroups/88808/categories?format=json
+2025-12-06 12:24:59 | ERROR    | src.providers.draftkings.client | Failed to fetch NFL Categories: 403 Client Error: Forbidden for url: https://sportsbook-us-oh.draftkings.com//sites/US-OH-SB/api/v5/eventgroups/88808/categories?format=json
+2025-12-06 12:25:31 | INFO     | src.core.config | Loaded configuration from config.yaml
+2025-12-06 12:25:31 | INFO     | src.providers.draftkings.client | Fetching Probe from: https://sportsbook-us-oh.draftkings.com//sites/US-OH-SB/api/v5/eventgroups/88808/categories?format=json
+2025-12-06 12:25:31 | ERROR    | src.providers.draftkings.client | Failed to fetch Probe: 403 Client Error: Forbidden for url: https://sportsbook-us-oh.draftkings.com//sites/US-OH-SB/api/v5/eventgroups/88808/categories?format=json
+2025-12-06 12:25:31 | INFO     | src.providers.draftkings.client | Fetching Probe from: https://sportsbook-us-oh.draftkings.com//sites/US-OH-SB/api/v1/eventgroups/88808/categories?format=json
+2025-12-06 12:25:31 | ERROR    | src.providers.draftkings.client | Failed to fetch Probe: 403 Client Error: Forbidden for url: https://sportsbook-us-oh.draftkings.com//sites/US-OH-SB/api/v1/eventgroups/88808/categories?format=json
+2025-12-06 12:25:31 | INFO     | src.providers.draftkings.client | Fetching Probe from: https://sportsbook-us-oh.draftkings.com//sites/US-OH-SB/api/v1/eventgroups/88808/navigation?format=json
+2025-12-06 12:25:31 | ERROR    | src.providers.draftkings.client | Failed to fetch Probe: 403 Client Error: Forbidden for url: https://sportsbook-us-oh.draftkings.com//sites/US-OH-SB/api/v1/eventgroups/88808/navigation?format=json
+2025-12-06 12:25:31 | INFO     | src.providers.draftkings.client | Fetching Probe from: https://sportsbook-us-oh.draftkings.com//sites/US-OH-SB/api/v2/eventgroups/88808/navigation?format=json
+2025-12-06 12:25:31 | ERROR    | src.providers.draftkings.client | Failed to fetch Probe: 403 Client Error: Forbidden for url: https://sportsbook-us-oh.draftkings.com//sites/US-OH-SB/api/v2/eventgroups/88808/navigation?format=json
+2025-12-06 12:25:31 | INFO     | src.providers.draftkings.client | Fetching Probe from: https://sportsbook-us-oh.draftkings.com//sites/US-OH-SB/api/v1/leagues/88808/categories?format=json
+2025-12-06 12:25:32 | ERROR    | src.providers.draftkings.client | Failed to fetch Probe: 404 Client Error: Not Found for url: https://sportsbook-us-oh.draftkings.com//sites/US-OH-SB/api/v1/leagues/88808/categories?format=json
+2025-12-06 12:25:32 | INFO     | src.providers.draftkings.client | Fetching Probe from: https://sportsbook-us-oh.draftkings.com//sites/US-OH-SB/api/v1/eventgroups/88808/full?format=json
+2025-12-06 12:25:32 | ERROR    | src.providers.draftkings.client | Failed to fetch Probe: 403 Client Error: Forbidden for url: https://sportsbook-us-oh.draftkings.com//sites/US-OH-SB/api/v1/eventgroups/88808/full?format=json

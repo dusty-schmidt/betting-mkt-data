@@ -4,7 +4,7 @@
 Betting market data aggregator - fetches odds from providers, normalizes data, exposes via read-only API.
 
 **Components**: Providers → Scheduler → Database → API  
-**Entry Points**: API `http://localhost:8000`, Database `betting.db`, Logs `logs/app.log`
+**Entry Points**: API `http://localhost:5000`, Database `betting_markets.db`, Logs `logs/app.log`
 
 ## Setup & Workflow
 
@@ -52,7 +52,7 @@ uv sync && uv run python run.py
 - **Task workflow**: Use `./dev-workflow.sh start/end`
 
 ### Specific Tasks
-- Add provider → `docs/DATA-EXTRACTION.md`
+- Add provider → `docs/PROVIDERS.md`
 - Change DB schema → `docs/DATABASE.md`  
 - Add API endpoint → `docs/API.md`
 - Modify scheduler → Check `dev-docs/TASKS.md`
@@ -95,8 +95,8 @@ src/
 ```bash
 # Debug
 tail -f logs/app.log
-sqlite3 betting.db ".tables"
-curl http://localhost:8000/games
+sqlite3 betting_markets.db ".tables"
+curl http://localhost:5000/api/v1/games
 
 # What NOT to do
 ❌ print() instead of logger

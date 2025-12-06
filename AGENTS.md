@@ -25,7 +25,7 @@ This file provides guidance to agents when working with code in this repository.
 ### Documentation System:
 - **Work logs**: `dev-docs/work-logs/` - auto-managed, one per session
 - **Task priorities**: `dev-docs/TASKS.md` - check before starting work
-- **Implementation guides**: `docs/` directory (API.md, DATABASE.md, DATA-EXTRACTION.md)
+- **Implementation guides**: `docs/` directory (API.md, DATABASE.md, PROVIDERS.md)
 - **Git workflow reference**: `dev-docs/references/git-workflow.md`
 
 ## Key Commands
