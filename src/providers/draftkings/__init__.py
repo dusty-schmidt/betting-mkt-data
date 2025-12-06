@@ -15,9 +15,10 @@ class DraftKingsProvider(BaseProvider):
         self.client = DraftKingsClient()
 
     def get_sports_mapping(self) -> dict:
-        # Example mapping; real values would come from DraftKings docs
-        return {"100": "NFL", "200": "NBA"}
+        # Map sport names to their internal DraftKings league IDs
+        return {"NFL": "1", "NBA": "42648", "MLB": "3"}
 
     def fetch_odds(self, sport_id: str) -> list[StandardizedGame]:
         raw = self.client.get_odds(sport_id)
-        return parse_odds(raw)
+        sport_name = self.get_sports_mapping().get(sport_id, "Unknown")
+        return parse_odds(raw, sport_id, sport_name)

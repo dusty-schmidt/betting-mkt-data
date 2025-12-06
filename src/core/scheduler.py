@@ -60,25 +60,34 @@ class Scheduler:
         """Start background threads based on config."""
         config = self.load_config()
         intervals = config.get("intervals", {})
-        
+
         self.running = True
-        
+
+        # Run initial fetch for all configured sports immediately on startup
+        log.info("Running initial data fetch on startup...")
+        for sport in intervals.keys():
+            try:
+                log.info(f"Initial fetch for {sport}")
+                orchestrate(sport_id=sport)
+            except Exception as e:
+                log.error(f"Error during initial fetch for {sport}: {e}")
+
         # Strategy: The config allows different intervals per provider.
         # But orchestrate(sport) currently runs ALL providers.
         # To respect the config, we should ideally update orchestration to run specific providers.
-        # For this step, we will launch a thread for each provider as configured, 
+        # For this step, we will launch a thread for each provider as configured,
         # and we will assume orchestrate is robust enough (or we will update it in a future step).
-        
+
         for sport, providers in intervals.items():
             for provider_name, interval in providers.items():
                 t = threading.Thread(
-                    target=self._worker, 
+                    target=self._worker,
                     args=(sport, provider_name, interval),
                     daemon=True
                 )
                 t.start()
                 self.threads.append(t)
-        
+
         log.info(f"Scheduler started with {len(self.threads)} active threads.")
 
     def stop(self):

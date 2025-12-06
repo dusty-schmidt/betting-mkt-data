@@ -8,6 +8,7 @@ dependencies = [
     "pydantic",
     "pyyaml",
     "waitress",
+    "requests",
 ]
 
 [project.optional-dependencies]

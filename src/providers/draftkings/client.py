@@ -1,18 +1,47 @@
 # src/providers/draftkings/client.py
-"""Simple HTTP client placeholder for DraftKings.
-
-In a real implementation this would handle authentication, session management,
-and constructing the correct endpoint URLs.
-"""
+"""HTTP client for DraftKings sportsbook API."""
 
 import requests
+from ...core.logger import get_logger
+
+log = get_logger(__name__)
 
 class DraftKingsClient:
-    BASE_URL = "https://api.draftkings.com/odds"
+    """Client for fetching odds data from DraftKings API."""
+
+    # Map sport IDs to DraftKings league IDs
+    LEAGUE_MAPPING = {
+        "100": "1",      # NFL
+        "200": "42648",  # NBA
+        "300": "3",      # MLB
+    }
+
+    HEADERS = {
+        "User-Agent": "Mozilla/5.0 (compatible; BettingAggregator/1.0)",
+        "Accept": "*/*"
+    }
 
     def get_odds(self, sport_id: str):
-        # Placeholder: return empty list or mock data
-        # In practice you would perform a GET request like:
-        # response = requests.get(f"{self.BASE_URL}/{sport_id}")
-        # return response.json()
-        return []
+        """Fetch odds data for a specific sport from DraftKings API."""
+        try:
+            league_id = self.LEAGUE_MAPPING.get(sport_id)
+            if not league_id:
+                log.warning(f"No league mapping found for sport_id: {sport_id}")
+                return {}
+
+            url = f"https://sportsbook-nash.draftkings.com/api/sportscontent/dkusoh/v1/leagues/{league_id}"
+            log.info(f"Fetching DraftKings data from: {url}")
+
+            response = requests.get(url, headers=self.HEADERS, timeout=10)
+            response.raise_for_status()
+
+            data = response.json()
+            log.info(f"Successfully fetched {len(data.get('events', []))} events from DraftKings")
+            return data
+
+        except requests.exceptions.RequestException as e:
+            log.error(f"DraftKings API request failed: {e}")
+            return {}
+        except Exception as e:
+            log.error(f"Unexpected error fetching DraftKings data: {e}")
+            return {}
