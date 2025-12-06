@@ -37,7 +37,6 @@ HEADERS = {
 }
 
 # Known Subcategory IDs for Game Lines
-# These might change, but they are good starting points for substitution
 SUBCATEGORY_IDS = {
     "NFL": "4518",
     "NBA": "4511"
@@ -358,6 +357,14 @@ def main():
                 print(f"{game.away_team} @ {game.home_team}")
                 print(f"  Start: {game.start_time}")
                 print(f"  Status: {game.status}")
+                
+                if game.markets:
+                    print("  Markets:")
+                    for m_name, m_selections in game.markets.items():
+                        print(f"    {m_name}: {', '.join(m_selections)}")
+                else:
+                    print("  Markets: None found")
+                    
                 print("-" * 60)
         else:
             print(f"Failed to fetch {sport} games data.")

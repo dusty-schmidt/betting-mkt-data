@@ -1,7 +1,7 @@
 # Work Log - [Task Name]
 
 **Date**: YYYY-MM-DD
-**Status**: In Progress | Completed | Blocked
+**Status**: Completed
 
 ## Objective
 Brief description of what this task accomplishes.
